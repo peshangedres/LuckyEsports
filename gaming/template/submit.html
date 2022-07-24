@@ -1,0 +1,205 @@
+<h1 class="pageHeading">Submit your {{CONFIG.VALUES.GAME_PHRASE_SINGULAR}}</h1>
+<div class="pageDescription">
+	Use this form to submit or edit your {{CONFIG.VALUES.GAME_PHRASE_SINGULAR}} to {{CONFIG.VALUES.JAM_PHRASE_SINGULAR}} {{page.submit_jam.jam_number}}.
+</div>
+
+<div class="panel panel-info">
+	<div class='panel-heading'>
+		<h3 class='panel-title submitJamHeader'>
+			{{page.submit_jam.jam_number_ordinal}} {{CONFIG.VALUES.JAMNAME}} ({{page.submit_jam.date}})
+		</h3>
+		{{CONFIG.VALUES.THEME_PHRASE_SINGULAR}}: {{page.submit_jam.theme}}
+	</div>
+
+	<form method='post' enctype="multipart/form-data" class="panel-body jamContent">
+		{{> csrf_token}}
+		<div class="panel panel-info">
+			<div class='panel-heading'>
+				<h3 class='panel-title submitEntryHeading'>
+					{{CONFIG.VALUES.GAME_PHRASE_SINGULAR}} Info
+				</h3>
+			</div>
+			<div class="panel-body">
+				<div class="form-group">
+					<label for="gamename">{{CONFIG.VALUES.GAME_PHRASE_SINGULAR}} title</label>
+					<input type="text" class="form-control" id="gamename" name='{{{forms.form.submit.name}}}' placeholder="{{CONFIG.VALUES.GAME_PHRASE_SINGULAR}} name" value="{{page.user_entry_name}}" required>
+				</div>
+
+				<div class="form-group">
+					<label for="screenshotfile">Screenshot / Icon (Change)</label>
+					<br />Square icons work best. Supported formats: png, jpg, gif (up to {{CONFIG.PRETTY_PRINT.MAX_SCREENSHOT_FILE_SIZE_IN_BYTES}})
+					<input type="file" class="form-control" id="screenshotfile" name='{{{forms.form.submit.screenshot}}}' placeholder="Screenshot file" value="{{page.user_entry_screenshot}}">
+				</div>
+				<div class="form-group">
+					<label for="description">Brief {{CONFIG.VALUES.GAME_PHRASE_SINGULAR}} description</label>
+					<textarea class="form-control" id="description" name='{{{forms.form.submit.description}}}' placeholder="{{CONFIG.VALUES.GAME_PHRASE_SINGULAR}} description">{{page.user_entry_desc}}</textarea>
+				</div>
+			</div>
+		</div>
+
+		<div class="panel panel-info">
+			<div class='panel-heading'>
+				<h3 class='panel-title submitEntryHeading'>
+					Link to {{CONFIG.VALUES.GAME_PHRASE_SINGULAR}}
+				</h3>
+			</div>
+			<div class="panel-body">
+				<ul class="nav nav-tabs">
+					<li role="presentation" class="active"><a data-toggle="tab" href="#platformInfo">Info</a></li>
+					{{#page.platforms}}
+						<li role="presentation"><a data-toggle="tab" href="#platform{{platform_id}}">{{platform_name}} {{#platform_entry_url}}<img src='{{{page.template_path}}}images/check.png' class='submitPlatformIcon'>{{/platform_entry_url}}</a></li>
+					{{/page.platforms}}
+				</ul>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<div class="tab-content">
+							<div id="platformInfo" class="tab-pane fade in active">
+								<p>You need to host the {{CONFIG.VALUES.GAME_PHRASE_SINGULAR}} files yourself. If you don't have a website, you might want to consider hosting files on a service like Dropbox or Google Drive, or as a release if you're using Github.</p>
+
+								<p>Add<b> at least one build.</b> You can add source code too, however a build is required.</p>
+
+								<p>To remove a platform, leave the URL for that platform blank and submit.</p>
+
+								<p>If your {{CONFIG.VALUES.GAME_PHRASE_SINGULAR}} supports <b>multiple platforms</b>, insert the URL in fields for all supported platforms.</p>
+							</div>
+							{{#page.platforms}}
+								<div id="platform{{platform_id}}" class="tab-pane fade">
+									<p>
+										Add the URL to where the player can play your {{CONFIG.VALUES.GAME_PHRASE_SINGULAR}} for the {{platform_name}} platform.
+									</p>
+									<p>
+										<label for="gameurl{{platform_id}}">URL to {{platform_name}} build</label>
+										<input type="url" class="form-control" id="gameurl{{platform_id}}" name='{{{forms.form.submit.url}}}{{platform_id}}' placeholder="http://game-url" value="{{platform_entry_url}}">
+									</p>
+								</div>
+							{{/page.platforms}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="panel panel-info">
+			<div class='panel-heading'>
+				<h3 class='panel-title submitEntryHeading'>
+					Customize
+				</h3>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="colorPresets">Preset</label>
+							<div class="btn-group" data-toggle="buttons">
+								{{#page.submit_jam.colors}}
+									<label class="btn btn-default submitColorButton" style='background-color: {{color}};' onclick="$('#colorPreview').css('background-color', '{{color}}'); $('#colorPreview').css('color', '#000000'); $('#backgroundColor').val('{{color}}'); $('#textColor').val('#000000')">
+										<input type="radio" autocomplete="off"> {{color}}
+									</label>
+								{{/page.submit_jam.colors}}
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+						<div class="form-group">
+							<label for="backgroundColor">Background Colour</label>
+							<input type="color" class="form-control" id="backgroundColor" name='{{{forms.form.submit.background_color}}}' placeholder="Colour" value="#{{page.user_entry_background_color}}" oninput="$('#colorPreview').css('background-color', this.value);" required>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<label for="textColor">Text Colour</label>
+							<input type="color" class="form-control" id="textColor" name='{{{forms.form.submit.text_color}}}' placeholder="Colour" value="#{{page.user_entry_text_color}}" oninput="$('#colorPreview').css('color', this.value);" required>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div id='colorPreview' class="submitColorPreview" style='background-color: #{{page.user_entry_background_color}}; color: #{{page.user_entry_text_color}}'>
+							<b><span class='entryTileTitleText'>Preview</span></b><br />
+							by <span class='entryAuthor'>Preview</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{{^page.user_submitted_to_this_jam}}
+		<div class="panel panel-info">
+			<div class='panel-heading'>
+				<h3 class='panel-title submitEntryHeading'>
+					Satisfaction
+				</h3>
+			</div>
+			<div class="panel-body">
+				<div class="form-group">
+					<input type="hidden" id="satisfaction" name='{{{forms.form.submit.satisfaction}}}' value="0">
+					<p>Please rate your experience: (Optional)
+						<div onclick='SetSatisfaction("no");' class="btn btn-default">No rating</div>
+					</p>
+					<img id='satisfaction_star_-5' src='{{{page.template_path}}}images/star_red_outline.png' onclick='SetSatisfaction(-5);'>
+					<img id='satisfaction_star_-4' src='{{{page.template_path}}}images/star_red_outline.png' onclick='SetSatisfaction(-4);'>
+					<img id='satisfaction_star_-3' src='{{{page.template_path}}}images/star_red_outline.png' onclick='SetSatisfaction(-3);'>
+					<img id='satisfaction_star_-2' src='{{{page.template_path}}}images/star_red_outline.png' onclick='SetSatisfaction(-2);'>
+					<img id='satisfaction_star_-1' src='{{{page.template_path}}}images/star_yellow_outline.png' onclick='SetSatisfaction(-1);'>
+					<img id='satisfaction_star_0' src='{{{page.template_path}}}images/star_yellow_outline.png' onclick='SetSatisfaction(0);'>
+					<img id='satisfaction_star_1' src='{{{page.template_path}}}images/star_yellow_outline.png' onclick='SetSatisfaction(1);'>
+					<img id='satisfaction_star_2' src='{{{page.template_path}}}images/star_green_outline.png' onclick='SetSatisfaction(2);'>
+					<img id='satisfaction_star_3' src='{{{page.template_path}}}images/star_green_outline.png' onclick='SetSatisfaction(3);'>
+					<img id='satisfaction_star_4' src='{{{page.template_path}}}images/star_green_outline.png' onclick='SetSatisfaction(4);'>
+					<img id='satisfaction_star_5' src='{{{page.template_path}}}images/star_green_outline.png' onclick='SetSatisfaction(5);'>
+					<p id='satisfaction_description'>No rating</p>
+				</div>
+			</div>
+		</div>
+		{{/page.user_submitted_to_this_jam}}
+
+		<input type="hidden" name="{{{forms.form.submit.jam_number}}}" value="{{page.submit_jam.jam_number}}" />
+			<button type="submit" name='{{{forms.form.action}}}' value='{{{forms.action.submit}}}' class="btn btn-default">Submit</button>
+	</form>
+</div>
+
+<script type='text/javascript'>
+	function ToggleURLEntry(sender){
+		$(sender).parent().parent().find("span").toggle();
+		return false;
+	}
+
+	function SetSatisfaction(score){
+		$("#satisfaction").val(score);
+		if(score == "no"){
+			$("#satisfaction_description").text("No Rating");
+		}else{
+			$("#satisfaction_description").text("Rating: " + score);
+		}
+		SetStarState("satisfaction_star_-5", "red", score, -5);
+		SetStarState("satisfaction_star_-4", "red", score, -4);
+		SetStarState("satisfaction_star_-3", "red", score, -3);
+		SetStarState("satisfaction_star_-2", "red", score, -2);
+		SetStarState("satisfaction_star_-1", "yellow", score, -1);
+		SetStarState("satisfaction_star_0", "yellow", score, 0);
+		SetStarState("satisfaction_star_1", "yellow", score, 1);
+		SetStarState("satisfaction_star_2", "green", score, 2);
+		SetStarState("satisfaction_star_3", "green", score, 3);
+		SetStarState("satisfaction_star_4", "green", score, 4);
+		SetStarState("satisfaction_star_5", "green", score, 5);
+		return false;
+	}
+
+	function SetStarState(id, color, score, requiredScore){
+		if(score == "na"){
+			$("#"+id).attr("src", "{{{page.template_path}}}images/star_"+color+"_outline.png");
+		}
+
+		var correctSign = false;
+		if((score < 0 && requiredScore < 0) ||
+		   (score > 0 && requiredScore > 0) ||
+		   (requiredScore == 0)){
+			correctSign = true;
+		}
+
+		if(correctSign && (Math.abs(score) >= Math.abs(requiredScore))){
+			$("#"+id).attr("src", "{{{page.template_path}}}images/star_"+color+".png");
+		}else{
+			$("#"+id).attr("src", "{{{page.template_path}}}images/star_"+color+"_outline.png");
+		}
+	}
+</script>

@@ -1,0 +1,49 @@
+<h1 class="pageHeading">Assets</h1>
+<div class="pageDescription">
+	Here you can find some assets which you can use for your {{CONFIG.VALUES.GAME_PHRASE_PLURAL}}.
+</div>
+
+{{#assets.LIST}}
+	<p>
+		<h4>{{title}}</h4>
+	</p>
+	<p>
+		By {{author_display_name}}<br />
+		{{description}}
+	</p>
+	{{#is_audio}}
+		<p>
+			<audio controls="controls">
+				Your browser does not support the <code>audio</code> element.
+				<source src="{{content}}" type="audio/wav">
+			</audio>
+			<br /><a href='{{content}}'>Download</a>
+		</p>
+	{{/is_audio}}
+	{{#is_image}}
+		<p>
+			<a href='{{content}}'><img src='{{content}}' class='assetImage'></a>
+			<br /><a href='{{content}}'>Download</a>
+		</p>
+	{{/is_image}}
+	{{#is_file}}
+		<p>
+			<a href='{{content}}'>Download</a>
+		</p>
+	{{/is_file}}
+	{{#is_text}}
+		<p>
+			{{content}}
+		</p>
+	{{/is_text}}
+	{{#is_link}}
+		<p>
+			<a href='{{content}}'>{{content}}</a>
+		</p>
+	{{/is_link}}
+	{{#is_other}}
+		<p>
+			{{content}}
+		</p>
+	{{/is_other}}
+{{/assets.LIST}}

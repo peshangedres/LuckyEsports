@@ -1,0 +1,155 @@
+body{
+    background-color: #202020;
+    color: white;
+}
+.panel-body{
+    background-color: #383838;
+    border-color: #7B8991;
+}
+
+.jamContent{
+    background-color: #383838;
+    border-color: #7B8991;
+}
+
+.panel-info>.panel-heading{
+    background-color: #576065;
+    color: #D8F2FF;
+    border-color: #7B8991;
+}
+
+.panel-info>.jamNotDeleted{
+    background-color: #576065;
+}
+
+.panel-info>.jamDeleted{
+    background-color: #7E4B4B;
+}
+
+.panel-info>.chart-container{
+    background-color: #383838;
+}
+
+.panel{
+    border-color: #7B8991;
+    background-color: #383838;
+}
+
+.theme-old{
+		background-color: #424242;
+}
+
+.theme-banned{
+		background-color: #7E4B4B;
+}
+
+a{
+    color: #76B2E5;
+}
+.a:visited{
+    color: #76B2E5;
+}
+
+.a:link{
+    color: #76B2E5;
+}
+
+a:hover{
+    color: #99CAF4;
+}
+.a:active{
+    color: #99CAF4;
+}
+
+.form-control{
+    background-color: #606060;
+    color: white;
+}
+
+.form-control[disabled], .form-control[readonly]{
+    background-color: #333333;
+    color: #777777;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+    background-color: #606060;
+    color: white;
+}
+
+.btn-default{
+    background-color: #606060;
+    color: white;
+}
+
+.btn-success{
+    background-color: #29a329;
+    border-color: #29a329;
+}
+
+.btn-warning{
+    background-color: #eb9114;
+    border-color: #eb9114;
+}
+
+.btn-danger{
+	 background-color: #ac2925;
+   border-color: #ac2925;
+}
+
+.authorPageEntry{
+    background-color: #484848;
+}
+
+.trumbowyg, .trumbowyg .trumbowyg-modal-title, .trumbowyg label input, .trumbowyg label input:hover, .trumbowyg label input:focus {
+    background-color: #606060;
+    color: white;
+}
+
+.trumbowyg-button-pane, .trumbowyg .trumbowyg-modal-box {
+    background-color: #7B8991;
+}
+
+#mainmenu li.mainmenu-separator {
+    border-top: 1px solid #7B8991;
+    color: white;
+}
+
+.btn[disabled]{
+    color: black;
+}
+
+.cookieNotice{
+    background: whitesmoke;
+    color: #222222;
+}
+
+.cookieNotice>.btn-xs{
+    color: black;
+  }
+
+.poll{
+    background: #32444c !important;
+    border-color: #7cb0c9 !important;
+    color: #7cb0c9 !important;
+}
+
+.dataTable{
+    border-color: #7B8991;
+}
+
+.dataTableHeaderRow{
+    background-color: #576065;
+    color: #D8F2FF;
+}
+
+.fourRowDataTable tbody tr:nth-child(4n+1) {background-color: #4C5256; color: #D8F2FF}
+.fourRowDataTable tbody tr:nth-child(4n+2) {background-color: #383838; color: #ffffff}
+.fourRowDataTable tbody tr:nth-child(4n+3) {background-color: #42484B; color: #D8F2FF}
+.fourRowDataTable tbody tr:nth-child(4n+4) {background-color: #383838; color: #ffffff}
+
+.dataTable tbody tr:nth-child(2n) {background-color: #4C5256; color: #D8F2FF}
+.dataTable tbody tr:nth-child(2n+1) {background-color: #42484B; color: #D8F2FF}
+
+.entryTileSubmitButtonCell{
+  color: white;
+}

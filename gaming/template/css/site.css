@@ -1,0 +1,859 @@
+body{
+	background-color: #EFEFEF;
+}
+
+
+.jamHeader{
+  cursor: pointer;
+  border-bottom: 0px;
+}
+
+.jamContent{
+    background-color: #F7FBFD;
+}
+
+.jamHeader:hover{
+	background-color: #CCE7F4;
+}
+
+.panel{
+	border-radius: 0px;
+}
+
+.panel-footer{
+	border-radius: 0px;
+}
+
+.panel-heading{
+	border-radius: 0px;
+}
+
+.notification-minor {
+  background-color: #fcffdc;
+}
+
+.notification-major {
+  background-color: #ffdcea;
+}
+
+.notification {
+  padding: 5px;
+  text-align: center;
+  line-height: 16px;
+}
+
+.notifications-panel {
+  border-bottom:1px solid #bce8f1;
+  margin-bottom:1rem;
+}
+
+#mainmenu {
+  list-style-type: none;
+  padding-left: 0;
+  margin: -15px;
+  margin-bottom: 15px;
+}
+
+#mainmenu li {
+  padding: 1px 7px;
+}
+#mainmenu li.mainmenu-separator {
+  border-top: 1px solid white;
+  margin-top: -1px;
+  color: #777777;
+  font-size: 10px;
+  text-transform: uppercase;
+  padding-top: 12px;
+}
+#mainmenu-social {
+  text-align: center;
+}
+#mainmenu-social a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.new::before {
+  content: 'New!';
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 10px;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.updated::before {
+  content: 'Updated!';
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 10px;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.entryScreenshot{
+	position: absolute;
+	border: solid 1px #DDDDDD;
+	transform: scale(1, 1);
+	transition: 0.3s;
+	width: 100%;
+}
+.entryScreenshot.hiddenFace{
+	transform: scale(0, 1);
+	transition: 0.1s;
+}
+
+.entryName{
+	border: solid 1px #DDDDDD;
+	border-top: 0px;
+}
+
+.entryPlayIcon{
+	width: 24px;
+}
+
+.entryDescription{
+	margin: 10px 0;
+	padding: 5px;
+	border-top: 1px solid rgba(0,0,0,0.5);
+	border-bottom: 1px solid rgba(0,0,0,0.5);
+	line-height: 14px;
+}
+
+.entryButton{
+	border: 1px solid rgba(0,0,0,0.4);
+	padding: 4px;
+}
+.entryButton:hover{
+	border: 1px solid rgba(0,0,0,1);
+}
+
+.entry{
+    color: black;
+}
+
+.form-control{
+	border-radius: 0px;
+}
+
+.alignCenter{
+    text-align: center;
+}
+
+.alignRight{
+    text-align: center;
+}
+
+.fullWidth{
+	width: 100%;
+}
+
+.maxFullWidth{
+	max-width: 100%;
+}
+
+.btn{
+	border-radius: 0px;
+}
+
+.themeTableCell{
+	padding: 3px 3px;
+	min-width: 30px;
+}
+
+.themeTableCellCentered{
+	text-align: center;
+}
+
+.theme-to-delete{
+  background-color:rgba(255,0,0,0.5);
+}
+
+.wrapper {
+  width: 100%;
+  /* whatever width you want */
+  display: inline-block;
+  position: relative;
+}
+.wrapper:after {
+  padding-top: 56.25%;
+  /* 16:9 ratio */
+  display: block;
+  content: '';
+}
+.main {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  /* fill parent */
+  background-color: deepskyblue;
+  /* let's see it! */
+  color: white;
+}
+
+.trumbowyg {
+  background-color: white;
+  border: 1px solid #CCCCCC;
+  margin-top: 0;
+  min-height: 150px;
+}
+
+.trumbowyg-editor {
+  min-height: 150px;
+}
+
+.mediaButton{
+	width: 100px; 
+	border-radius: 5px; 
+	color: white; 
+	text-align: center; 
+	padding: 4px 0px;
+	margin-bottom: 5px;
+}
+
+.twitterButton{
+	background-color: #1B95E0; 
+}
+
+.twitterButton:hover{
+	background-color: #0C7ABF; 
+}
+
+.twitchButton{
+	background-color: #6441A5; 
+}
+
+.twitchButton:hover{
+	background-color: #472B7C; 
+}
+
+.ircButton{
+	background-color: #777777; 
+}
+
+.ircButton:hover{
+	background-color: #4B4B4B; 
+}
+
+.discordButton{
+	background-color: #7289DA; 
+}
+
+.discordButton:hover{
+	background-color: #6676AE; 
+}
+
+.authorPageEntry{
+  background-color: #F5F5F5;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.cookieNotice{
+  position: fixed;
+  bottom: 1.5%;
+  z-index: 999;
+  padding: 10px 15px;
+  text-align: left;
+
+  width: 50%;
+  margin-right: 25%;
+  margin-left: 25%;
+
+  border-radius: 10px;
+
+  background: #576065;
+  color: white;
+
+  font-size: 15px;
+  line-height: 25px;
+
+  animation: 2s slide-up;
+}
+
+@keyframes slide-up {
+  from {
+    bottom: -15%;
+  }
+
+  25%{
+    bottom: -15%;
+  }
+
+  to {
+    bottom: 1.5%;
+  }
+}
+
+.cookieNotice>.btn-xs{
+  color: white;
+}
+
+.sortableHeader{
+  cursor: pointer;
+}
+
+.assetImage{
+  max-width: 600px; 
+  max-height: 200px; 
+  border: 0;
+}
+
+.authorEntry{
+  height: 40px;
+}
+
+.authorEntryImageContainer{
+  width: 220px;
+}
+
+.authorEntryImage{
+  max-height: 200px;
+}
+
+.searchInputField{
+  margin-bottom: 10px;
+}
+
+.configTextarea{
+  min-height: 150px;
+}
+
+.cookieHeader{
+  margin: -5px 0 5px 0;
+}
+
+.contentJamHeaderFont{
+  font-size: 16px;
+}
+
+.contentEntryHeader{
+  padding-left: 0px; 
+  padding-right: 0px;
+}
+
+.contentEntryDeletedHeader{
+  background-color: #FDF7F7;
+}
+
+.contentEntryContent{
+  text-align: center;
+}
+
+.satisfacitonContainer{
+  width: 100%; 
+  text-align: center;
+}
+
+.satisfactionStarGreen{
+  background: url({{{page.template_path}}}images/star_green_outline.png);
+  background-size: 16px 16px;
+}
+
+.satisfactionStarYellow{
+  background: url({{{page.template_path}}}images/star_yellow_outline.png);
+  background-size: 16px 16px;
+}
+
+.satisfactionStarRed{
+  background: url({{{page.template_path}}}images/star_red_outline.png);
+  background-size: 16px 16px;
+}
+
+.satisfactionStar{
+  height: 16px; 
+  width:16px; 
+  display: inline-block;
+}
+
+.platformsIconColumn{
+  width: 40px;
+}
+
+.platformsIconImage{
+  max-width:40px; 
+  max-height: 40px;
+}
+
+.editUserChangePassword{
+  margin-top: 50px;
+}
+
+.editUserAdminActivityIndicatorLoginContainer{
+  width: 30px; 
+  text-align: center; 
+}
+
+.editUserAdminActivityIndicatorJamParticipationContainer{
+  width: 30px; 
+  text-align: center; 
+}
+
+.editUserAdminActivityIndicatorAdminActionContainer{
+  width: 30px; 
+  text-align: center; 
+}
+
+.editUserAdminActivityImage{
+  width: 24px;
+}
+
+.editUserAdminCandidatesVoteColumn{
+  width: 400px; 
+  text-align: center;
+}
+
+.editUserAdminCandidatesSponsored{
+  color: green;
+}
+
+.editUserAdminCandidatesVetoed{
+  text-align: center; 
+  color: red; 
+  font-weight: bold;
+}
+
+.editUserAdminCandidatesVotesFor{
+  text-align: center;
+}
+
+.editUserAdminCandidatesVotesButtonsContainer{
+  text-align: right;
+}
+
+.editUserAdminCandidatesVotesForm{
+  display: inline;
+}
+
+.editUserAdminCandidatesVotesButtonImage{
+  width: 24px; 
+  height: 24px;
+}
+
+.entriesPlatformIcon{
+  width: 16px;
+}
+
+.header{
+  margin-top: 10px;
+}
+
+.statsRow{
+  font-size: 16px; 
+  font-weight: bold;
+}
+
+.statsDisplay{
+  margin-bottom: 10px;
+}
+
+.headerColumn{
+  margin-top: 10px;
+}
+
+.headerTimer{
+  color: #FF0066;
+}
+
+.headerTimerCountdown{
+  font-size: 24px; 
+  font-weight: bold;
+}
+
+.brandLogo{
+  float: left; 
+  max-height: 100px; 
+  border: 0;
+}
+
+.mainLogo{
+  max-width: 100%; 
+  width: 400px; 
+  border: 0;
+}
+
+.ircButtonLink{
+  text-decoration: none;
+}
+
+.ircButton{
+  display: inline-block;
+}
+
+.ircButtonImage{
+  width: 20px;
+}
+
+.discordButtonLink{
+  text-decoration: none;
+}
+
+.discordButton{
+  display: inline-block;
+}
+
+.discordButtonImage{
+  width: 20px;
+}
+
+.footer{
+  padding-bottom: 50px;
+}
+
+.cookieNoticeForm{
+  float: right; 
+  background: transparent; 
+  border: none;
+}
+
+.jamHeaderContainer{
+  padding: 0; 
+  width: 100%; 
+  align-content: center;
+}
+
+.jamHeaderRow{
+  margin: 0;
+}
+
+.jamHeaderOrdinalContainer{
+  text-align: center;
+}
+
+.jamHeaderOrdinal{
+  font-size: 35px;
+}
+
+.jamHeaderTimer{
+  color: indianred; 
+  font-weight: bold;
+}
+
+.jamHeaderStatsContainer{
+  float: right; 
+  text-align: right;
+}
+
+.jamTable{
+  width: 100%;
+}
+
+.jamTableRow{
+  height: 40px;
+}
+
+.jamTableEntryScreenshot{
+  width: 220px;
+}
+
+.jamTableEntryScreenshotImage{
+  max-width:100%;
+}
+
+.jamTableEntryScreenshotImageWithDescription{
+  max-height:200px;
+}
+
+.jamTableEntryScreenshotImageWithoutDescription{
+  max-height:100px;
+}
+
+.loginLink{
+  float: right;
+}
+
+.registerLink{
+  float: right;
+}
+
+.twitchFrame{
+  width: 100%; 
+  height: 100%;
+}
+
+.entryTile{
+  padding-left: 0px; 
+  padding-right: 0px; 
+  height: 226px; 
+  cursor: pointer; 
+  border: none;
+}
+
+.entryTileIcon{
+  height: 226px; 
+}
+
+.entryTileTable{
+  display: table; 
+  height: 100%; 
+  width: 100%;
+}
+
+.entryTileCell{
+  display: table-cell;
+  vertical-align: bottom;
+}
+
+.entryTileSubmitButtonCell{
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.entryTileCentering{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.entryTileTitle{
+  width: 190px; 
+  margin-left: auto; 
+  margin-right: auto;
+  border-radius: 5px;
+}
+
+.entryTileTitleText{
+  word-wrap: break-word;
+}
+
+.entryTileDescriptionPanel{
+  height: 226px; 
+  overflow-y: auto; 
+  overflow-x: hidden; 
+}
+
+.entryTileSubmit{
+  padding-left: 0px; 
+  padding-right: 0px; 
+  height: 226px; 
+  cursor: pointer; 
+  border: none;
+}
+
+.entryTileSubmitText{
+  padding-bottom: 3px;
+}
+
+.loadAllJamsButtonContainer{
+  padding-bottom: 10px; 
+  padding-top: 5px;
+}
+
+.userSettingsForm{
+  margin-top: 50px;
+}
+
+.userSettingsInput{
+  font-weight: normal;
+}
+
+.themesTable{
+  width: 100%;
+}
+
+.themesIdeasColumn{
+  width: 100%;
+}
+
+.themesActionButtons{
+  display: inline-block;
+}
+
+.submitJamHeader{
+  font-size: 24px;
+}
+
+.submitEntryHeading{
+  font-size: 16px;
+}
+
+.submitPlatformIcon{
+  height: 16px; 
+  width: 16px;
+}
+
+.submitColorButton{
+  color: black;
+}
+
+.submitColorPreview{
+  width: 190px; 
+  margin-left: auto; 
+  margin-right: auto;
+  border-radius: 5px; 
+  text-align: center;
+}
+
+.pollDisplayLegendContainer{
+  padding-bottom: 50px;
+}
+
+.pollDisplayLegend{
+  width: 100%
+}
+
+.pollDisplayPieContainer{
+  padding-bottom: 50px;
+}
+
+.pollDisplayPie{
+  position: relative; 
+  height:30vh; 
+  width:100%
+}
+
+.pollDisplayBarContainer{
+  padding-bottom: 50px;
+}
+
+.pollDisplayBar{
+  position: relative; 
+  height:30vh; 
+  width:100%
+}
+
+.pollRow{
+  font-size: 16px;
+}
+
+.pollUserVoted{
+  display: none;
+}
+
+.pollInstructionsText{
+  font-size: 12px;
+}
+
+.pollOption{
+  margin-top: 5px;
+}
+
+.notificationRow{
+  font-size: 16px;
+}
+
+.notificationImage{
+  max-height: 80px;
+  float: left;
+  margin-right: 10px;
+}
+
+.notificationImageTiny{
+  max-height: 20px;
+  margin-right: 10px;
+}
+
+.messageTitle{
+  font-size: 24px;
+}
+
+.menuButton{
+  width: 20px;
+}
+
+.manageThemesPie{
+  position: relative; 
+  max-height:500px; 
+  max-width:500px;
+}
+
+.manageThemesLegendIcon{
+  width: 16px;
+}
+
+.manageThemesStatusColumn{
+  min-width: 10px;
+}
+
+.manageThemesActionsColumn{
+  display: inline-block;
+}
+
+.manageThemesMultiActions{
+  padding-top: 10px; 
+  padding-bottom: 10px;
+}
+
+.manageThemesMultiActionsButton{
+  border: none; 
+  background-color: transparent;
+}
+
+.entriesNotVisible{
+  display: none;
+}
+
+.installPageContainer{
+  margin-top: 10px;
+}
+
+
+.pageHeading{
+  font-size: 24px;
+}
+
+.pageDescription{
+  margin: 0 0 10px;
+}
+
+.dataTableIdentifierColumn{
+  font-weight: bold;
+}
+
+.dataTableHeaderRow{
+  background-color: #d9edf7;
+  color: #31708f
+}
+
+.fourRowDataTable tbody tr:nth-child(4n+1) {background-color: #ECF3F7; color: #31708f}
+.fourRowDataTable tbody tr:nth-child(4n+2) {background-color: #FFF; color: #000000}
+.fourRowDataTable tbody tr:nth-child(4n+3) {background-color: #F4F7F9; color: #31708f}
+.fourRowDataTable tbody tr:nth-child(4n+4) {background-color: #FFF; color: #000000}
+
+.dataTable tbody tr:nth-child(2n) {background-color: #ECF3F7; color: #31708f}
+.dataTable tbody tr:nth-child(2n+1) {background-color: #F4F7F9; color: #31708f}
+
+.assetImagePreview{
+  max-width: 200px;
+  max-height: 100px;
+}
+.assetImagePreviewCell{
+  text-align: center;
+  vertical-align: middle;
+}
+.assetAudioPreview{
+  max-width: 200px;
+  max-height: 100px;
+}
+
+.actionButton{
+  margin: 5px 5px 5px 0px;
+}
+
+.entryTileTitleText{
+  word-wrap: break-word;
+}
+
+.adminlogContentColumn{
+  overflow-wrap: anywhere;
+}
+
+.entriesTitleColumn{
+  overflow-wrap: anywhere;
+}
+
+.jamHeaderPanel{
+  margin-bottom: 0px;
+}
+
+.jamHeaderPanel{
+  border: 0px;
+}
+
+.jamHeaderIcon{
+  max-width: 40px;
+  max-height: 40px;
+}

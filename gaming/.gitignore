@@ -1,0 +1,12 @@
+data/*
+assets/*
+cache/*
+custom/*
+plugins/migratedata/*.json
+.vscode/
+.idea/
+
+config/dbconfig.php
+.vagrant/
+.DS_Store
+error_log

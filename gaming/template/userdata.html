@@ -1,0 +1,47 @@
+<h1 class="pageHeading">User Data</h1>
+<div class="pageDescription">
+	This page shows the data we have about the currently logged in user. In most cases the data is directly from the database, in some cases some additional data is added to clarify what various IDs mean, for eaxmple for poll votes, the question and option are also included, for {{CONFIG.VALUES.THEME_PHRASE_SINGULAR}} votes the selected option is translated from the internal representation of 1, 2 and 3 to -1, 0 and +1 respectively.
+</div>
+
+<p>
+	<h4>Users</h4>
+	{{{page.userdata_users}}}
+
+	<h4>{{CONFIG.VALUES.GAME_PHRASE_PLURAL}}</h4>
+	{{{page.userdata_entries}}}
+
+	<h4>{{CONFIG.VALUES.THEME_PHRASE_PLURAL}}</h4>
+	{{{page.userdata_themes}}}
+
+	<h4>{{CONFIG.VALUES.THEME_PHRASE_SINGULAR}} Votes</h4>
+	{{{page.userdata_theme_votes}}}
+
+	<h4>{{CONFIG.VALUES.THEME_PHRASE_SINGULAR}} Ideas</h4>
+	{{{page.userdata_theme_ideas}}}
+
+	<h4>Assets</h4>
+	{{{page.userdata_assets}}}
+
+	<h4>Poll Votes</h4>
+	{{{page.userdata_poll_votes}}}
+
+	<h4>Satisfaction</h4>
+	{{{page.userdata_satisfaction}}}
+
+	<h4>{{CONFIG.VALUES.JAM_PHRASE_PLURAL}}</h4>
+	{{{page.userdata_jams}}}
+
+	<h4>Sessions</h4>
+	{{{page.userdata_sessions}}}
+
+	<h4>Admin Votes (when voter)</h4>
+	{{{page.userdata_admin_vote_voter}}}
+
+	<h4>Admin Votes (when subject)</h4>
+	{{{page.userdata_admin_vote_subject}}}
+
+	{{#page.user_data}}
+		<h4>{{segment_title}}</h4>
+		{{{segment_data}}}
+	{{/page.user_data}}
+</p>

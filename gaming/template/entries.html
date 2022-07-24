@@ -1,0 +1,71 @@
+<h1 class="pageHeading">{{CONFIG.VALUES.GAME_PHRASE_PLURAL}}</h1>
+<div class="pageDescription">
+	This list contains all {{CONFIG.VALUES.GAME_PHRASE_PLURAL}} which have been submitted. The table is sortable by clicking a column header.
+</div>
+
+<input type="text" class="form-control searchInputField" id='js-entrysearch' placeholder="Search by Title, {{CONFIG.VALUES.DEVELOPER_PHRASE_SINGULAR}}, {{CONFIG.VALUES.JAM_PHRASE_SINGULAR}} Number or {{CONFIG.VALUES.THEME_PHRASE_SINGULAR}}..." onkeyup="FilterEntryTable()">
+
+<div class='panel-body table-responsive'>
+	Click on a column header to sort.
+	<table id='js-entrytable' class="table sortable dataTable">
+		<thead>
+			<tr class='sortableHeader dataTableHeaderRow'>
+				<th>Title</th>
+				<th>{{CONFIG.VALUES.DEVELOPER_PHRASE_SINGULAR}}</th>
+				<th>{{CONFIG.VALUES.JAM_PHRASE_SINGULAR}}</th>
+				<th>{{CONFIG.VALUES.THEME_PHRASE_SINGULAR}}</th>
+				
+				{{#page.platforms}}
+					<th><img src='{{{page.template_path}}}{{{platform_icon_url}}}' class='entriesPlatformIcon' title='{{platform_name}}'></th>
+				{{/page.platforms}}
+			</tr>
+		</thead>
+		<tbody>
+			{{#entries.LIST}}
+				{{^entry_deleted}}
+				<tr>
+						<td class="dataTableIdentifierColumn entriesTitleColumn">{{title}}</td>
+						<td><a href='?{{{forms.get.page}}}={{{forms.pages.author}}}&{{{forms.get.author.username}}}={{author_username}}'>{{author_display_name}}</a></td>
+						<td><a href='?{{{forms.get.page}}}={{{forms.pages.jam}}}&{{{forms.get.jam.number}}}={{jam_number}}'>{{jam_number}}</a></td>
+						<td><a href='?{{{forms.get.page}}}={{{forms.pages.jam}}}&{{{forms.get.jam.number}}}={{jam_number}}'>{{jam_theme}}</a></td>
+						
+						{{#platforms}}
+							<td>
+								{{#url}}
+									<a href='{{{url}}}' target='_blank'><img src='{{{page.template_path}}}{{{platform_icon_url}}}' class='entriesPlatformIcon' title='{{platform_name}}'></a>
+								{{/url}}
+							</td>
+						{{/platforms}}
+					</tr>
+				{{/entry_deleted}}
+			{{/entries.LIST}}
+		</tbody>
+	</table>
+</div>
+
+<script>
+	function FilterEntryTable() {
+		var input, filter, table, tr, td_title, td_author, td_jam, td_theme, i;
+		var input = document.getElementById("js-entrysearch");
+		var filter = input.value.toUpperCase();
+		var table = document.getElementById("js-entrytable");
+		var tr = table.getElementsByTagName("tr");
+
+		for (var i = 0; i < tr.length; i++) {
+			var td_title = tr[i].getElementsByTagName("td")[0];
+			var td_author = tr[i].getElementsByTagName("td")[1];
+			var td_jam = tr[i].getElementsByTagName("td")[2];
+			var td_theme = tr[i].getElementsByTagName("td")[3];
+			if (td_title && td_author && td_jam && td_theme) {
+				if (	td_title.innerHTML.toUpperCase().indexOf(filter) > -1 ||
+						td_author.innerHTML.toUpperCase().indexOf(filter) > -1 ||
+						td_jam.innerHTML.toUpperCase().indexOf(filter) > -1 ||
+						td_theme.innerHTML.toUpperCase().indexOf(filter) > -1) {
+					tr[i].style.display = "";
+				} else {
+					tr[i].style.display = "none";
+				}
+			}
+		}
+	}
+</script>

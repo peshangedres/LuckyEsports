@@ -1,0 +1,46 @@
+<h1 class="pageHeading">Manage {{CONFIG.VALUES.JAM_PHRASE_SINGULAR}}</h1>
+<div class="pageDescription">
+	Edit the form below to edit information about this {{CONFIG.VALUES.JAM_PHRASE_SINGULAR}}, or press the button to delete it. All {{CONFIG.VALUES.GAME_PHRASE_PLURAL}} in this {{CONFIG.VALUES.JAM_PHRASE_SINGULAR}} must be deleted first before the {{CONFIG.VALUES.JAM_PHRASE_SINGULAR}} itself can be deleted.
+</div>
+
+<form method='post'>
+	{{> csrf_token}}
+	{{#page.editingjam}}
+		<input type="hidden" name="{{{forms.form.editjam.jam_id}}}" value="{{{jam_id}}}">
+		<div class="form-group">
+			<label for="jam_number">{{CONFIG.VALUES.JAM_PHRASE_SINGULAR}} number</label>
+			<input type="text" class="form-control" id="jam_number" name='{{{forms.form.editjam.number}}}' placeholder="{{CONFIG.VALUES.JAM_PHRASE_SINGULAR}} number" value="{{{jam_number}}}" readonly required>
+		</div>
+		<div class="form-group">
+			<label for="theme">{{CONFIG.VALUES.THEME_PHRASE_SINGULAR}}</label>
+			<input type="text" class="form-control" id="theme" name='{{{forms.form.editjam.theme}}}' placeholder="Theme" value="{{{theme_visible}}}" required>
+		</div>
+		<div class="form-group">
+			<label for="default_icon_url">Default {{CONFIG.VALUES.GAME_PHRASE_SINGULAR}} icon</label> (Used by {{CONFIG.VALUES.GAME_PHRASE_PLURAL}} without a custom icon)
+			<input type="text" class="form-control" id="default_icon_url" name='{{{forms.form.editjam.default_icon_url}}}' placeholder="Default {{CONFIG.VALUES.GAME_PHRASE_SINGULAR}} icon" value="{{{default_icon_url}}}" required>
+		</div>
+		<div class="form-group">
+			<label for="date">Date</label>
+			<input type="date" class="form-control" id="date" name='{{{forms.form.editjam.date}}}' placeholder="date" value="{{{html_startdate}}}" required>
+		</div>
+		<div class="form-group">
+			<label for="time">Time</label>
+			<input type="time" class="form-control" id="time" name='{{{forms.form.editjam.time}}}' placeholder="Time" value="{{{time}}}" required>
+		</div>
+		<div class="form-group">
+			<label for="streamer_username">Streamer Username</label>
+			<input type="text" class="form-control" id="streamer_username" name='{{{forms.form.editjam.streamer_username}}}' placeholder="Streamer Username" value="{{{streamer_username}}}">
+		</div>
+		<div class="form-group">
+			<label for="streamer_twitch_username">Streamer Twitch Username</label>
+			<input type="text" class="form-control" id="streamer_twitch_username" name='{{{forms.form.editjam.streamer_twitch_username}}}' placeholder="Streamer Twitch Username" value="{{{streamer_twitch_username}}}">
+		</div>
+		<div class="form-group">
+			<label for="jamcolors">{{CONFIG.VALUES.JAM_PHRASE_SINGULAR}} colours (Users can choose between these to customize their {{CONFIG.VALUES.GAME_PHRASE_SINGULAR}}'s appearance on the site)</label>
+			<input type="text" class="form-control" id="jamcolors" name='{{{forms.form.editjam.jam_color}}}' value='{{colors_input_string}}' placeholder="{{CONFIG.VALUES.JAM_PHRASE_SINGULAR}} colours, formatted with hex codes (without #), delimitered with a dash (-). Example: ff0000-00ff00-0000ff-ffcc00-ccff00" required>
+		</div>
+
+		<button type="submit" name='{{{forms.form.action}}}' value='{{{forms.action.savejamedits}}}' class="btn btn-default">Save {{CONFIG.VALUES.JAM_PHRASE_SINGULAR}}</button>
+		<button type="submit" name='{{{forms.form.action}}}' value='{{{forms.action.deletejam}}}' class="btn btn-default">Delete {{CONFIG.VALUES.JAM_PHRASE_SINGULAR}}</button>
+	{{/page.editingjam}}
+</form>

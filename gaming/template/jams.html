@@ -1,0 +1,56 @@
+<h1 class="pageHeading">{{CONFIG.VALUES.JAM_PHRASE_PLURAL}}</h1>
+<div class="pageDescription">
+	This list contains all {{CONFIG.VALUES.JAM_PHRASE_PLURAL}}. The table is sortable by clicking a column header.
+</div>
+
+<input type="text" class="form-control searchInputField" id='js-jamsearch' placeholder="Search by Number, {{CONFIG.VALUES.THEME_PHRASE_SINGULAR}} or Date..." onkeyup="FilterJamsTable()">
+
+<div class='panel-body table-responsive'>
+	Click on a column header to sort.
+	<table id="js-jamtable" class="table sortable dataTable">
+		<thead>
+			<tr class='sortableHeader dataTableHeaderRow'>
+				<th>Number</th>
+				<th>{{CONFIG.VALUES.THEME_PHRASE_SINGULAR}}</th>
+				<th>Date</th>
+				<th>{{CONFIG.VALUES.GAME_PHRASE_PLURAL}}</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#jams.LIST}}
+				{{^jam_deleted}}
+					<tr>
+						<td class="dataTableIdentifierColumn"><a href='?{{{forms.get.page}}}={{{forms.pages.jam}}}&{{{forms.get.jam.number}}}={{jam_number}}'>{{jam_number}}</a></td>
+						<td>{{theme}}</td>
+						<td>{{date}} at {{time}}</td>
+						<td>{{entries_count}}</td>
+					</tr>
+				{{/jam_deleted}}
+			{{/jams.LIST}}
+		</tbody>
+	</table>
+</div>
+
+<script>
+	function FilterJamsTable() {
+		var input = document.getElementById("js-jamsearch");
+		var filter = input.value.toUpperCase();
+		var table = document.getElementById("js-jamtable");
+		var tr = table.getElementsByTagName("tr");
+
+		for (var i = 0; i < tr.length; i++) {
+			var td_number = tr[i].getElementsByTagName("td")[0];
+			var td_theme = tr[i].getElementsByTagName("td")[1];
+			var td_date = tr[i].getElementsByTagName("td")[1];
+			if (td_number && td_theme && td_date) {
+				if (  td_number.innerHTML.toUpperCase().indexOf(filter) > -1 ||
+				      td_theme.innerHTML.toUpperCase().indexOf(filter) > -1 ||
+				      td_date.innerHTML.toUpperCase().indexOf(filter) > -1) {
+					tr[i].style.display = "";
+				} else {
+					tr[i].style.display = "none";
+				}
+			}
+		}
+	}
+</script>

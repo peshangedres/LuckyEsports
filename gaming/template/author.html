@@ -1,0 +1,14 @@
+{{#page.viewing_author}}
+	{{>user_header}}
+	
+	<div class='panel-body table-responsive'>
+		{{#page.viewing_author.entries}}
+			{{^entry_deleted}}
+				{{>entry_for_jam}}
+			{{/entry_deleted}}	
+		{{/page.viewing_author.entries}}
+		{{^page.viewing_author.entries}}
+			This user did not submit any {{CONFIG.VALUES.GAME_PHRASE_PLURAL}}.
+		{{/page.viewing_author.entries}}
+	</div>
+{{/page.viewing_author}}

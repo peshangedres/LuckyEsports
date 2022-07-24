@@ -1,0 +1,13 @@
+{{#page.viewing_jam}}
+	{{>jam_header}}
+	<div class='panel-body'>
+		{{#entries}}
+			{{^entry_deleted}}
+				{{>entry_by_user}}
+			{{/entry_deleted}}
+		{{/entries}}
+		{{^entries}}
+			No entries submitted to this jam.
+		{{/entries}}
+	</div>
+{{/page.viewing_jam}}

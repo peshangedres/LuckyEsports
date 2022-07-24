@@ -1,0 +1,56 @@
+<h1 class="pageHeading">{{CONFIG.VALUES.DEVELOPER_PHRASE_PLURAL}}</h1>
+<div class="pageDescription">
+	This list contains all {{CONFIG.VALUES.DEVELOPER_PHRASE_PLURAL}} who have participated in a {{CONFIG.VALUES.JAM_PHRASE_SINGULAR}}. The table is sortable by clicking a column header.
+</div>
+
+<input type="text" class="form-control searchInputField" id='js-authorsearch' placeholder="Search by username or twitter handle..." onkeyup="FilterAuthorTable()">
+
+<div class='panel-body table-responsive'>
+	Click on a column header to sort.
+	<table id='js-authortable' class="table sortable dataTable">
+		<thead>
+			<tr class='sortableHeader dataTableHeaderRow'>
+				<th>{{CONFIG.VALUES.DEVELOPER_PHRASE_SINGULAR}}</th>
+				<th>Twitter</th>
+				<th>{{CONFIG.VALUES.GAME_PHRASE_PLURAL}}</th>
+				<th>First {{CONFIG.VALUES.JAM_PHRASE_SINGULAR}}</th>
+				<th>Last {{CONFIG.VALUES.JAM_PHRASE_SINGULAR}}</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#users.LIST}}
+				{{#is_author}}
+					<tr>
+						<td class="dataTableIdentifierColumn"><a href='?{{{forms.get.page}}}={{{forms.pages.author}}}&{{{forms.get.author.username}}}={{username}}'>{{display_name}}</a></td>
+						<td><a href='https://twitter.com/{{twitter_text_only}}' target='_BLANK'>{{twitter}}</a></td>
+						<td>{{#entry_count}}{{entry_count}}{{/entry_count}}</td>
+						<td>{{#first_jam_number}}{{first_jam_number}}{{/first_jam_number}}</td>
+						<td>{{#last_jam_number}}{{last_jam_number}}{{/last_jam_number}}</td>
+					</tr>
+				{{/is_author}}
+			{{/users.LIST}}
+		</tbody>
+	</table>
+</div>
+
+<script>
+	function FilterAuthorTable() {
+		var input = document.getElementById("js-authorsearch");
+		var filter = input.value.toUpperCase();
+		var table = document.getElementById("js-authortable");
+		var tr = table.getElementsByTagName("tr");
+
+		for (var i = 0; i < tr.length; i++) {
+			var td_name = tr[i].getElementsByTagName("td")[0];
+			var td_twitter = tr[i].getElementsByTagName("td")[1];
+			if (td_name && td_twitter) {
+				if (td_name.textContent.toUpperCase().indexOf(filter) > -1 ||
+				     td_twitter.textContent.toUpperCase().indexOf(filter) > -1) {
+					tr[i].style.display = "";
+				} else {
+					tr[i].style.display = "none";
+				}
+			}
+		}
+	}
+</script>
